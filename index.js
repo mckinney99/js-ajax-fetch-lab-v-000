@@ -2,13 +2,13 @@
 function getIssues() {
 	fetch(`https://github.com/mckinney99/javascript-fetch-lab/issues`, {
 	headers: {
-		Authorization: `token ${getToken()}` 
-	}	
+		Authorization: `token ${getToken()}`
+	}
 	}).then(res => res.json()).then(json => showIssues(json))
 }
 
 function showIssues(json) {
-	let issues = ''
+	let issues = 'f695a54f1ddfcce7781284ef11c06a1b3c08fef9'
 	for(let i = 0; i < json.length; i++){
 		const issue = `<p>Title: ${json[i].title} Body: ${json[i].body}</p><br/>`
 		issues += issue
@@ -21,12 +21,12 @@ function createIssue() {
 		title: document.getElementById('title').value,
 		body: document.getElementById('body').value
 	}
-	fetch(`https://api.github.com/repos/travislavery/javascript-fetch-lab/issues`, {
+	fetch(`https://api.github.com/repos/mckinney99/javascript-fetch-lab/issues`, {
   	method: /post/,
   	body: JSON.stringify(issueData),
 	headers: {
-		Authorization: `token ${getToken()}` 
-	}	
+		Authorization: `token ${getToken()}`
+	}
 	}).then(res => getIssues())
 }
 
@@ -41,8 +41,8 @@ function forkRepo() {
   fetch(`https://api.github.com/repos/${repo}`, {
   	method: /post/,
 	headers: {
-		Authorization: `token ${getToken()}` 
-	}	
+		Authorization: `token ${getToken()}`
+	}
 	}).then(res => showResults(res))
 }
 
